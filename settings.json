@@ -1,5 +1,5 @@
 {
     "project_id": "prueba-sj22",
-    "topic_id": "pubsub-topic-sj22",
+    "topic_id": "sensors-topic-sj22",
     "pubsub_admin_key_path": "C:/pubsub-admin-key.json"
 }

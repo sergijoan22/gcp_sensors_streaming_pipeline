@@ -1,19 +1,19 @@
 [
     {
         "device_id" : "18473654",
-        "type_id": "Ambient"
+        "type_id": "Temperature"
     },
     {
         "device_id" : "94847365",
-        "type_id": "Ambient"
+        "type_id": "Temperature"
     },
     {
         "device_id" : "43846243",
-        "type_id": "Ambient"
+        "type_id": "Temperature"
     },
     {
         "device_id" : "37584634",
-        "type_id": "Ambient"
+        "type_id": "Temperature"
     },
     {
         "device_id" : "38474562",

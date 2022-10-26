@@ -33,7 +33,7 @@ To exit:
 
 Use of the [library myconfig](https://pypi.org/project/myconfig/) to generate two files where global variables are used.
 
-Inside the venv and the root directory of the project, create the file *settings.json* to save public setting and *.secrets.json*, which is added to *.gitigore* automatically:
+Inside the venv and the root directory of the project, create the file *settings.json* to save public setting and *.secrets.json*, which is added to *.gitignore* automatically:
 
 `myconfig -i json`
 
@@ -43,3 +43,22 @@ Inside the venv and the root directory of the project, create the file *settings
 2. Create a service account with the Pub/Sub Admin role
 3. Create a JSON key for the account and put in *settings.json* the path to the key generated
 4. Execute the file setup/create_topic.py
+
+### Publish directly from Pub/Sub to BigQuery
+
+Publish messages from Pub/Sub to BigQuery.
+First, give the service account used by Pub/Sub a role to edit in BigQuery
+Create a table with:
+
+```sql
+CREATE OR REPLACE TABLE prueba.topic_ps (
+  subscription_name STRING,
+  message_id STRING,
+  publish_time TIMESTAMP,
+  data STRING,
+  attributes STRING)
+OPTIONS(
+  description="subscriber of the raw pubSub messages"
+)
+```
+

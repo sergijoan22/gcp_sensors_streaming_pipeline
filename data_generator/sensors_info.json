@@ -1,0 +1,58 @@
+[
+    {
+        "device_id" : "18473654",
+        "type_id": "Ambient"
+    },
+    {
+        "device_id" : "94847365",
+        "type_id": "Ambient"
+    },
+    {
+        "device_id" : "43846243",
+        "type_id": "Ambient"
+    },
+    {
+        "device_id" : "37584634",
+        "type_id": "Ambient"
+    },
+    {
+        "device_id" : "38474562",
+        "type_id": "Light"
+    },
+    {
+        "device_id" : "24672389",
+        "type_id": "Light"
+    },    
+    {
+        "device_id" : "65938232",
+        "type_id": "Light"
+    },
+    {
+        "device_id" : "08374823",
+        "type_id": "Light"
+    },
+    {
+        "device_id" : "82364723",
+        "type_id": "Light"
+    },
+    {
+        "device_id" : "23454267",
+        "type_id": "Light"
+    },
+    {
+        "device_id" : "64634343",
+        "type_id": "Noise"
+    },
+    {
+        "device_id" : "26467233",
+        "type_id": "Noise"
+    },
+    {
+        "device_id" : "55467324",
+        "type_id": "Noise"
+    },
+    {
+        "device_id" : "82376432",
+        "type_id": "Noise"
+    }
+]

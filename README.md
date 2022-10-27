@@ -42,7 +42,12 @@ Inside the venv and the root directory of the project, create the file *settings
 1. Enable Pub/Sub API via the console or with `gcloud services enable pubsub.googleapis.com`
 2. Create a service account with the Pub/Sub Admin role
 3. Create a JSON key for the account and put in *settings.json* the path to the key generated
-4. Execute the file setup/create_topic.py
+4. Execute the file *setup/create_topic.py*
+
+### Read the Pub/Sub topic from the local machine
+
+1. Execute *setup/create_subscription.py* to create a pull subscription to the topic
+2. Execute *data_generator/read_data.py* to read messages from the topic
 
 ### Publish directly from Pub/Sub to BigQuery
 
@@ -61,4 +66,3 @@ OPTIONS(
   description="subscriber of the raw pubSub messages"
 )
 ```
-

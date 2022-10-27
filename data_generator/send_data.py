@@ -1,4 +1,5 @@
 from datetime import datetime
+from re import X
 import time
 import random
 import json
@@ -32,12 +33,7 @@ def data_generator(devices):
     data["device_id"] = devices[x_device]['device_id']
     # type from device
     device_type = devices[x_device]['type_id']
-    data["device_type"] = device_type
-    # returns magnitudes
-    data["temp"] = 0
-    data["humid"] = 0
-    data["light"] = 0
-    data["noise"] = 0    
+    data["device_type"] = device_type 
     if (device_type == 'Temperature'):
         data["value"] =  round(random.uniform(temp_range[0], temp_range[1]), 2)
     if (device_type == 'Light'):
@@ -64,10 +60,18 @@ topic_path = publisher.topic_path(project_id, topic_id)
 # EXECUTE THE SIMULATION
 if __name__ == "__main__":
    while True:
-    #print(data_generator(devices))
-    # send the message
+    # prepare the messages parts to be sent
     data = str(data_generator(devices)["value"]).encode('utf-8')
+    att_sensor_id = str(data_generator(devices)["device_type"])  # attribute
+    att_sensor_type = str(data_generator(devices)["device_id"])  # attribute
+    att_timestamp = str(data_generator(devices)["timestamp"])  # attribute
+    attributes = {
+        "sensor_id": att_sensor_id,
+        "sensor_type": att_sensor_type,
+        "timestamp": att_timestamp
+    }
+    
     future = publisher.publish(
-        topic_path, data)
+        topic_path, data, **attributes) # **attributes unpacks the dict to send each part as argument
     print("Published message id {}".format(future.result()))
     time.sleep(random.uniform(0.001 * 10, 0.2 * 10))

@@ -2,5 +2,8 @@
     "project_id": "prueba-sj22",
     "topic_id": "sensors-topic-sj22",
     "subscription_id": "ps-sub-prueba",
-    "pubsub_admin_key_path": "C:/pubsub-admin-key.json"
+    "bucket_name": "prueba-sj22",
+    "pubsub_admin_key_path": "C:/pubsub-admin-key.json",
+    "bq_admin_key_path": "C:/pubsub-admin-key.json",
+    "gcs_admin_key_path": "C:/gcs-admin-key.json"
 }

@@ -66,3 +66,54 @@ OPTIONS(
   description="subscriber of the raw pubSub messages"
 )
 ```
+
+### Run Dataflow
+
+1. Create a variable with the project in the shell
+
+	```bash
+	export PROJECT=$(gcloud config get-value project)
+	export REGION=europe-southwest1
+	```
+
+2. Create a bucket with the name of the project
+
+	```bash
+	gsutil mb -c regional -l europe-southwest1 gs://$PROJECT
+	```
+
+3. Upload the file with the Dataflow code to the GCS bucket
+
+4. Copy the file from the GCS bucket to the shell
+
+	```bash
+	gsutil -m cp -R gs://prueba-sj22/data_ingestion.py dataflow/data_ingestion.py
+	```
+
+5. Run a docker with Python 3.7. The PROJECT_ID variable is passed, and a volume between the host and the container is done to read the Dataflow file.
+
+	```bash
+	docker run -it -e PROJECT_ID=$PROJECT_ID -e REGION=$REGION -v $(pwd)/dataflow:/dataflow python:3.7 /bin/bash
+	```
+
+6. Install Beam. The version 2.33.0 is used in this case
+
+	```
+	apache-beam[gcp,test]==2.33.0
+	```
+
+7. Run the Beam job in Dataflow
+
+	```
+	python data_ingestion.py \
+	    --project=gcp_project_id \
+	    --region=$REGION \
+	    --input_topic=projects/gcp_project_id/topics/my-id \
+	    --output_path=gs://$PROJECT_ID/samples/output \
+	    --runner=DataflowRunner \
+	    --window_size=2 \
+	    --num_shards=2 \
+	    --temp_location=gs://$PROJECT_ID/temp
+	```
+
+	

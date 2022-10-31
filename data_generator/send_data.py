@@ -74,4 +74,4 @@ if __name__ == "__main__":
     future = publisher.publish(
         topic_path, data, **attributes) # **attributes unpacks the dict to send each part as argument
     print("Published message id {}".format(future.result()))
-    time.sleep(random.uniform(0.001 * 10, 0.2 * 10))
+    time.sleep(random.uniform(0.01, 0.2))

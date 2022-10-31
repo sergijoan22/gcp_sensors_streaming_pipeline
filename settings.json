@@ -5,5 +5,6 @@
     "bucket_name": "prueba-sj22",
     "pubsub_admin_key_path": "C:/pubsub-admin-key.json",
     "bq_admin_key_path": "C:/pubsub-admin-key.json",
-    "gcs_admin_key_path": "C:/gcs-admin-key.json"
+    "gcs_admin_key_path": "C:/gcs-admin-key.json",
+    "dataflow_admin_key_path": "C:/df-admin-key.json"
 }
